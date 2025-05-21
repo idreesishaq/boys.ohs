@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher Diary</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="boysData.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+<nav>
+  <div class="nav-container">
+    <button id="menuToggle" class="hamburger">&#9776;</button> <!-- ☰ -->
+    <ul class="nav-links">
+      <li><a href="index.html">Attendance</a></li>
+      <li><a href="taught.html" class="active">Teacher Diary</a></li>
+      <li><a href="student.html">Student View</a></li>
+      <li><a href="summary.html">Summary</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <h1>Topics Covered - Teacher Diary</h1>
+
+  <section id="filters">
+    <select id="filterClassTaught"></select>
+    <select id="filterUnit"></select>
+    <input type="date" id="filterDateTaught">
+    <button onclick="renderTaught()">Apply Filters</button>
+  </section>
+
+  <table id="taughtTable">
+    <thead>
+      <tr>
+        <th>Date</th><th>Class</th><th>Unit</th><th>Exercise</th>
+        <th>Topics Covered (Classwork done)</th><th>Homework</th><th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</body>
+</html>
