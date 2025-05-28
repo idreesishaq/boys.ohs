@@ -173,7 +173,13 @@ table tbody tr:nth-child(even) {
   }
 
   table thead {
-    display: none;
+    display: table-header-group;
+  }
+  table th {
+    font-size: 14px;
+    background-color: #063568;
+    color:white;
+    padding: 8px;
   }
 
   table, table tbody, table tr, table td {
