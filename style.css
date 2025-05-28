@@ -1,211 +1,33 @@
+/* Reset and base styling */
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background: #f8f8f8;
-  }
-  
-  nav {
-    margin-bottom: 20px;
-  }
-  
-  nav a {
-    margin-right: 15px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  h1, h2 {
-    margin-top: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
-    background: white;
-  }
-  
-  th, td {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    text-align: center;
-  }
-  
-  select, input[type="date"], button {
-    margin: 10px 5px;
-    padding: 5px 10px;
-  }
-  .present {
-  color: green;
-  font-weight: bold;
+  font-family: Arial, sans-serif;
+  padding: 80px 20px 20px; /* leave space for nav */
+  background: #f8f8f8;
 }
 
-.absent {
-  color: red;
-  font-weight: bold;
-}
-nav {
-  margin-bottom: 20px;
-  display: flex;
-  gap: 10px;
+h1, h2 {
+  margin-top: 20px;
 }
 
-nav a {
-  padding: 8px 16px;
-  background-color: #e0e0e0;
-  color: #333;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
+select, input[type="date"], button {
+  margin: 10px 5px;
+  padding: 5px 10px;
 }
 
-nav a:hover {
-  background-color: #007bff;
-}
-
-nav a.active {
-  background-color: #007BFF;
-  color: white;
-}
-th {
-  cursor: pointer;
-}
-
+/* Navigation styles */
 nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background: #063568;
+  color: white;
   padding: 10px 20px;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 10px;
   transition: top 0.3s ease;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  padding: 80px 20px 20px; /* reserve space for nav */
-  background: #f8f8f8;
-}
-/* Prevent wrapping for specific columns in the taught table */
-#taughtTable td:nth-child(1), /* Date */
-#taughtTable td:nth-child(2), /* Class */
-#taughtTable td:nth-child(3), /* Unit */
-#taughtTable td:nth-child(4), /* Exercise */
-#taughtTable th:nth-child(1),
-#taughtTable th:nth-child(2),
-#taughtTable th:nth-child(3),
-#taughtTable th:nth-child(4) {
-  white-space: nowrap;
-}
-#taughtTable td.left-align {
-  text-align: left;
-}
-
-
-
-
-/* Zebra striping for all tables */
-table tbody tr:nth-child(odd) {
-  background-color: #ffffff; /* white */
-}
-
-table tbody tr:nth-child(even) {
-  background-color: #f2f2f2; /* light gray */
-}
-
-/*1. No wrap on Date, Class, Student columns in #studentTable */
-#studentTable td:nth-child(1), /* Date */
-#studentTable td:nth-child(2), /* Class */
-#studentTable td:nth-child(3)  /* Student */ {
-  white-space: nowrap;
-}
-
-/* 2. Left-align Taught and Homework columns in #studentTable */
-#studentTable td:nth-child(5), /* Taught */
-#studentTable td:nth-child(6)  /* Homework */ {
-  text-align: left;
-}
-
-
-/*Styles for screen like mobiles*/
-
-/* Base table responsiveness */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  /* table-layout: fixed; */
-  word-wrap: break-word;
-}
-
-/* Make table text smaller on mobile */
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-    padding: 0 10px;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-
-  table thead {
-    display: none; /* Hide table header on small screens */
-  }
-
-  table, table tbody, table tr, table td {
-    display: block;
-    width: 100%;
-  }
-
-  table tr {
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-
-  table td {
-    text-align: left;
-    padding: 8px;
-    position: relative;
-  }
-
-  /* Label each cell with the header name using data attributes */
-  table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    display: block;
-    margin-bottom: 4px;
-    color: #333;
-  }
-}
-@media (max-width: 768px) {
-  table thead { display: none; }
-  table, table tbody, table tr, table td {
-    display: block;
-    width: 100%;
-  }
-  table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    display: block;
-    margin-bottom: 4px;
-  }
-}
-/* Base nav style */
-
-nav {
-  background: #063568;
-  color: white;
-  padding: 10px;
 }
 
 nav .nav-container {
@@ -220,11 +42,24 @@ nav .nav-container {
   gap: 1rem;
 }
 
+nav a,
 .nav-links a {
   color: white;
   background-color: #063568;
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background-color: #007BFF;
+}
+
+nav a.active {
+  background-color: #007BFF;
+  color: white;
 }
 
 .hamburger {
@@ -236,8 +71,87 @@ nav .nav-container {
   cursor: pointer;
 }
 
-/* Mobile responsive styles */
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  background: white;
+  word-wrap: break-word;
+}
+
+th, td {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+th {
+  cursor: pointer;
+}
+
+/* Alternate row coloring */
+table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Status Coloring */
+.present {
+  color: green;
+  font-weight: bold;
+}
+
+.absent {
+  color: red;
+  font-weight: bold;
+}
+
+/* Column alignment for #studentTable */
+#studentTable td:nth-child(1), /* Date */
+#studentTable td:nth-child(2), /* Class */
+#studentTable td:nth-child(3)  /* Student */ {
+  white-space: nowrap;
+}
+
+#studentTable td:nth-child(5), /* Taught */
+#studentTable td:nth-child(6)  /* Homework */ {
+  text-align: left;
+}
+
+/* Column control for #taughtTable */
+#taughtTable td:nth-child(1),
+#taughtTable td:nth-child(2),
+#taughtTable td:nth-child(3),
+#taughtTable td:nth-child(4),
+#taughtTable th:nth-child(1),
+#taughtTable th:nth-child(2),
+#taughtTable th:nth-child(3),
+#taughtTable th:nth-child(4) {
+  white-space: nowrap;
+}
+
+#taughtTable td:nth-child(5), /* Topics Covered */
+#taughtTable td:nth-child(6)  /* Homework */ {
+  text-align: left;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -257,29 +171,41 @@ nav .nav-container {
   .hamburger {
     display: block;
   }
+
+  table thead {
+    display: none;
+  }
+
+  table, table tbody, table tr, table td {
+    display: block;
+    width: 100%;
+  }
+
+  table tr {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  table td {
+    text-align: left;
+    padding: 8px;
+    position: relative;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+    color: #333;
+  }
 }
 
-
-/* Prevent wrapping on Date, Class, Unit, Exercise */
-#taughtTable td:nth-child(1), /* Date */
-#taughtTable td:nth-child(2), /* Class */
-#taughtTable td:nth-child(3), /* Unit */
-#taughtTable td:nth-child(4), /* Exercise */
-#taughtTable th:nth-child(1),
-#taughtTable th:nth-child(2),
-#taughtTable th:nth-child(3),
-#taughtTable th:nth-child(4) {
-  white-space: nowrap;
-}
-
-/* Left-align "Topics Covered" and "Homework" columns */
-#taughtTable td:nth-child(5), /* Topics Covered */
-#taughtTable td:nth-child(6)  /* Homework */ {
-  text-align: left;
-}
-
-
-/* If your navbar height is 60px */
+/* Push down content below fixed nav */
 main, header, h1, .page-title {
-  margin-top: 90px; /* 60px nav + 10px buffer */
+  margin-top: 90px;
 }
